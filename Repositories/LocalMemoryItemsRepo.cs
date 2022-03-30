@@ -5,15 +5,15 @@ using System.Linq;
 
 namespace ApiProject.Repositories
 {
-    public class LocalMemoryItemsRepo : ILocalMemoryItemsRepo
+    public class LocalMemoryItemsRepo : LoaclAndExternalRepoInterface
     {
         private readonly List<Item> _items = new()
         {
-            new Item { Name = "First", Description = "First item" },
-            new Item { Name = "Second", Description = "Second item" },
-            new Item { Name = "Third", Description = "Third item" },
-            new Item { Name = "Fourth", Description = "Fourth item" },
-            new Item { Name = "Fifth", Description = "Fifth item" }
+            new Item { Id=1, Name = "First", Description = "First item" },
+            new Item { Id=2, Name = "Second", Description = "Second item" },
+            new Item { Id=3, Name = "Third", Description = "Third item" },
+            new Item { Id=4, Name = "Fourth", Description = "Fourth item" },
+            new Item { Id=5, Name = "Fifth", Description = "Fifth item" }
         };
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace ApiProject.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Creates new item in repository
         /// </summary>
         /// <param name="item"></param>
         public void CreateNewItem(Item item) 
@@ -44,7 +44,7 @@ namespace ApiProject.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Updateing existing item in the repository
         /// </summary>
         /// <param name="item"></param>
         public void UpdateItem(Item item)
@@ -54,7 +54,7 @@ namespace ApiProject.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Deletes item from repository by id
         /// </summary>
         /// <param name="id"></param>
         public void DeleteItem(int id)

@@ -1,4 +1,5 @@
 using ApiProject.Repositories;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,12 +28,13 @@ namespace ApiProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ILocalMemoryItemsRepo, LocalMemoryItemsRepo>(); // Register the dependency
+            services.AddSingleton<LoaclAndExternalRepoInterface, LocalMemoryItemsRepo>(); // Register the dependency
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiProject", Version = "v1" });
             });
+            services.AddMediatR(typeof(Startup)); // Register the MediatR packages
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
