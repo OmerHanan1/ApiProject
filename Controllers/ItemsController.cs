@@ -87,7 +87,7 @@ namespace ApiProject.Controllers
         /// DELETE command: deletes item if exist.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>deletes</returns>
         [HttpDelete]
         public ActionResult DeleteItem(int id) 
         {
