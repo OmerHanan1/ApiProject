@@ -6,6 +6,9 @@ using System;
 using ApiProject.DataTransferObjects;
 using System.Linq;
 using ApiProject.Extensions;
+using ApiProject.Domains.Queries;
+using MediatR;
+using System.Threading.Tasks;
 
 namespace ApiProject.Controllers
 {
@@ -13,12 +16,20 @@ namespace ApiProject.Controllers
     [Route("[Controller]")] // Optional
     public class ItemsController : ControllerBase
     {
+        // Every endpoint should have those 3 lines of code:
+        // Query/Command
+        // Send method (mediatR)
+        // Result
 
-        private readonly ILocalMemoryItemsRepo _repository;
 
-        public ItemsController(ILocalMemoryItemsRepo repo) 
+        private readonly LoaclAndExternalRepoInterface _repository;
+        private readonly IMediator _mediator;
+
+        public ItemsController(LoaclAndExternalRepoInterface repo, IMediator mediator) 
         {
-            this._repository = repo; // DI
+            // DI in ctor
+            this._repository = repo; 
+            this._mediator = mediator;
         }
 
         /// <summary>
@@ -26,10 +37,14 @@ namespace ApiProject.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<ItemDTO> GetItems() 
+        public async Task<IActionResult> GetItems() 
         {
-            var itemslist = _repository.GetItems().Select( i => i.convert_to_DTO());
-            return itemslist;
+            // Query/Command
+            var query = new GetItemsQuery();
+            // Send method
+            var result = await _mediator.Send(query);
+            // Result
+            return Ok(result);
         }
 
         /// <summary>

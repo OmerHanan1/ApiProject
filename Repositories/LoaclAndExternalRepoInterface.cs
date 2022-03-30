@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ApiProject.Repositories
 {
-    public interface ILocalMemoryItemsRepo
+    public interface LoaclAndExternalRepoInterface
     {
         Item GetItem(int id);
         IEnumerable<Item> GetItems();
