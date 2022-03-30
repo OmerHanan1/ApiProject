@@ -53,11 +53,19 @@ namespace ApiProject.Controllers
         /// <param name="id">Item key</param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public ActionResult<ItemDTO> GetItem(int id) 
+        public async Task<IActionResult> GetItem(int id) 
         {
-            var item = _repository.GetItem(id);
-            if (item == null) { return NotFound(); }
-            return item.convert_to_DTO();
+            // Query/Command
+            var query = new GetItemByIdQuery(id);
+            // Send method
+            var result = await _mediator.Send(query);
+            // Result
+            if(result == null) { return NotFound(); }
+            return Ok(result);
+
+
+            //
+
         }
 
         /// <summary>
