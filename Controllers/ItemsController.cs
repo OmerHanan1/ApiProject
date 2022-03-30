@@ -62,10 +62,6 @@ namespace ApiProject.Controllers
             // Result
             if(result == null) { return NotFound(); }
             return Ok(result);
-
-
-            //
-
         }
 
         /// <summary>

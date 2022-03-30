@@ -12,9 +12,9 @@ namespace ApiProject.Handlers
     {
         private readonly LoaclAndExternalRepoInterface _repository;
 
-        public GetItemByIdHandler(LocalMemoryItemsRepo localMemoryItemsRepo) 
+        public GetItemByIdHandler(LoaclAndExternalRepoInterface localAndExternalRepoInterface) 
         {
-            _repository = localMemoryItemsRepo;
+            _repository = localAndExternalRepoInterface;
         }
 
         public async Task<ItemDTO> Handle(GetItemByIdQuery request, CancellationToken cancellationToken)

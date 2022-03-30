@@ -9,11 +9,11 @@ namespace ApiProject.Repositories
     {
         private readonly List<Item> _items = new()
         {
-            new Item { Name = "First", Description = "First item" },
-            new Item { Name = "Second", Description = "Second item" },
-            new Item { Name = "Third", Description = "Third item" },
-            new Item { Name = "Fourth", Description = "Fourth item" },
-            new Item { Name = "Fifth", Description = "Fifth item" }
+            new Item { Id=1, Name = "First", Description = "First item" },
+            new Item { Id=2, Name = "Second", Description = "Second item" },
+            new Item { Id=3, Name = "Third", Description = "Third item" },
+            new Item { Id=4, Name = "Fourth", Description = "Fourth item" },
+            new Item { Id=5, Name = "Fifth", Description = "Fifth item" }
         };
 
         /// <summary>
