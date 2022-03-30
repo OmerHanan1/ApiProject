@@ -35,7 +35,7 @@ namespace ApiProject.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Creates new item in repository
         /// </summary>
         /// <param name="item"></param>
         public void CreateNewItem(Item item) 
@@ -44,7 +44,7 @@ namespace ApiProject.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Updateing existing item in the repository
         /// </summary>
         /// <param name="item"></param>
         public void UpdateItem(Item item)
@@ -54,7 +54,7 @@ namespace ApiProject.Repositories
         }
 
         /// <summary>
-        /// 
+        /// Deletes item from repository by id
         /// </summary>
         /// <param name="id"></param>
         public void DeleteItem(int id)
