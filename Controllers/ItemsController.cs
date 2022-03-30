@@ -9,6 +9,7 @@ using ApiProject.Extensions;
 using ApiProject.Domains.Queries;
 using MediatR;
 using System.Threading.Tasks;
+using ApiProject.Domains.Commands;
 
 namespace ApiProject.Controllers
 {
@@ -70,16 +71,10 @@ namespace ApiProject.Controllers
         /// <param name="item">Item</param>
         /// <returns>Action result - In type item</returns>
         [HttpPost]
-        public ActionResult<ItemDTO> CreateNewItem(CreateItemDTO item) 
+        public async Task<IActionResult> CreateNewItem(CreateItemCommand command) 
         {
-            Item _i = new()
-            {
-                Name = item.Name,
-                Description = item.Description
-            };
-            _repository.CreateNewItem(_i);
-            // By convergence, HttpPost command returns the created object
-            return CreatedAtAction(nameof(GetItem), new { id = _i.Id }, _i.convert_to_DTO());
+            var result = await _mediator.Send(command);
+            return CreatedAtAction(nameof(GetItem), new { id = result.Id }, result);
         }
 
         /// <summary>
