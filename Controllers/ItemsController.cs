@@ -49,7 +49,7 @@ namespace ApiProject.Controllers
         /// POST command: Creates a new Item and post it into the repository
         /// </summary>
         /// <param name="item">Item</param>
-        /// <returns></returns>
+        /// <returns>Action result - In type item</returns>
         [HttpPost]
         public ActionResult<ItemDTO> CreateNewItem(CreateItemDTO item) 
         {
@@ -68,7 +68,7 @@ namespace ApiProject.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <param name="item"></param>
-        /// <returns></returns>
+        /// <returns>Action result - NoContent</returns>
         [HttpPut("{id}")]
         public ActionResult UpdateItem(int id, Item item) 
         {
@@ -87,7 +87,7 @@ namespace ApiProject.Controllers
         /// DELETE command: deletes item if exist.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>deletes</returns>
+        /// <returns>Action result - NoContent</returns>
         [HttpDelete]
         public ActionResult DeleteItem(int id) 
         {
