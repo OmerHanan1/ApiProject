@@ -1,4 +1,5 @@
-#ApiProject
+#ApiProject#
+
 ##1. Project goals: CRUD api implementation ,using mediatR DI and so, working with git, connect to database (local and external).
 
 ##2. Design principles implemented on this project: loose coupling, strategy (dependency injection implementation), MVC architecture.
