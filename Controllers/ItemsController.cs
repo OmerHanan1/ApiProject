@@ -23,10 +23,10 @@ namespace ApiProject.Controllers
         // Result
 
 
-        private readonly LoaclAndExternalRepoInterface _repository;
+        private readonly ILocalAndExternalRepo _repository;
         private readonly IMediator _mediator;
 
-        public ItemsController(LoaclAndExternalRepoInterface repo, IMediator mediator) 
+        public ItemsController(ILocalAndExternalRepo repo, IMediator mediator) 
         {
             // DI in ctor
             this._repository = repo; 

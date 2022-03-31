@@ -10,9 +10,9 @@ namespace ApiProject.Handlers
 {
     public class DeleteItemHandler : IRequestHandler<DeleteItemCommand, ItemDTO>
     {
-        private readonly LoaclAndExternalRepoInterface _repository;
+        private readonly ILocalAndExternalRepo _repository;
 
-        public DeleteItemHandler(LoaclAndExternalRepoInterface loaclAndExternalRepoInterface) 
+        public DeleteItemHandler(ILocalAndExternalRepo loaclAndExternalRepoInterface) 
         {
             // DI in ctor
             _repository = loaclAndExternalRepoInterface;

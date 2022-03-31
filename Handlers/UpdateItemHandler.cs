@@ -12,9 +12,9 @@ namespace ApiProject.Handlers
 {
     public class UpdateItemHandler : IRequestHandler<UpdateItemCommand, ItemDTO>
     {
-        private readonly LoaclAndExternalRepoInterface _repository;
+        private readonly ILocalAndExternalRepo _repository;
 
-        public UpdateItemHandler(LoaclAndExternalRepoInterface loaclAndExternalRepoInterface) 
+        public UpdateItemHandler(ILocalAndExternalRepo loaclAndExternalRepoInterface) 
         {
             // DI in ctor
             _repository = loaclAndExternalRepoInterface;

@@ -12,8 +12,8 @@ namespace ApiProject.Handlers
 {
     public class CreateNewItemHandler : IRequestHandler<CreateItemCommand, ItemDTO>
     {
-        private readonly LoaclAndExternalRepoInterface _repository;
-        public CreateNewItemHandler(LoaclAndExternalRepoInterface loaclAndExternalRepoInterface) 
+        private readonly ILocalAndExternalRepo _repository;
+        public CreateNewItemHandler(ILocalAndExternalRepo loaclAndExternalRepoInterface) 
         {
             // DI in ctor
             _repository = loaclAndExternalRepoInterface;

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace ApiProject.Repositories
 {
-    public class LocalMemoryItemsRepo : LoaclAndExternalRepoInterface
+    public class LocalMemoryItemsRepo : ILocalAndExternalRepo
     {
         private readonly List<Item> _items = new()
         {

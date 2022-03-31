@@ -13,9 +13,9 @@ namespace ApiProject.Handlers
 {
     public class GetItemsHandler : IRequestHandler<GetItemsQuery, IEnumerable<ItemDTO>>
     {
-        private readonly LoaclAndExternalRepoInterface _repository;
+        private readonly ILocalAndExternalRepo _repository;
 
-        public GetItemsHandler(LoaclAndExternalRepoInterface localMemoryItemsRepo)
+        public GetItemsHandler(ILocalAndExternalRepo localMemoryItemsRepo)
         {
             // DI in ctor
             _repository = localMemoryItemsRepo;

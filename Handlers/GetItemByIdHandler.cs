@@ -10,9 +10,9 @@ namespace ApiProject.Handlers
 {
     public class GetItemByIdHandler : IRequestHandler<GetItemByIdQuery, ItemDTO>
     {
-        private readonly LoaclAndExternalRepoInterface _repository;
+        private readonly ILocalAndExternalRepo _repository;
 
-        public GetItemByIdHandler(LoaclAndExternalRepoInterface localAndExternalRepoInterface) 
+        public GetItemByIdHandler(ILocalAndExternalRepo localAndExternalRepoInterface) 
         {
             // DI in ctor
             _repository = localAndExternalRepoInterface;
