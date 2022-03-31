@@ -25,10 +25,12 @@
 ### Instructions for using local repository:
 	`instructions`
 	`instructions`
+	`instructions`	
 ### Instructions for using Mongo (ontop docker):
+	`instructions`
 	`instructions`
 	`instructions`
 ### Instructions for using CosmosDB (locally ontop CosmosDB desktop emulator)
 	`instructions`
 	`instructions`
-	
+	`instructions`
