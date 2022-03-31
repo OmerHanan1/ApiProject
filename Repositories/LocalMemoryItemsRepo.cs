@@ -9,11 +9,11 @@ namespace ApiProject.Repositories
     {
         private readonly List<Item> _items = new()
         {
-            new Item { Id=1, Name = "First", Description = "First item" },
-            new Item { Id=2, Name = "Second", Description = "Second item" },
-            new Item { Id=3, Name = "Third", Description = "Third item" },
-            new Item { Id=4, Name = "Fourth", Description = "Fourth item" },
-            new Item { Id=5, Name = "Fifth", Description = "Fifth item" }
+            new Item { Id= Guid.NewGuid(), Name = "First", Description = "First item" },
+            new Item { Id= Guid.NewGuid(), Name = "Second", Description = "Second item" },
+            new Item { Id= Guid.NewGuid(), Name = "Third", Description = "Third item" },
+            new Item { Id= Guid.NewGuid(), Name = "Fourth", Description = "Fourth item" },
+            new Item { Id= Guid.NewGuid(), Name = "Fifth", Description = "Fifth item" }
         };
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace ApiProject.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Item type object</returns>
-        public Item GetItem(int id)
+        public Item GetItem(Guid id)
         {
             return _items.Where(i => i.Id == id).SingleOrDefault();
         }
@@ -57,7 +57,7 @@ namespace ApiProject.Repositories
         /// Deletes item from repository by id
         /// </summary>
         /// <param name="id"></param>
-        public void DeleteItem(int id)
+        public void DeleteItem(Guid id)
         {
             var index = _items.FindIndex(exist => exist.Id == id);
             _items.RemoveAt(index);

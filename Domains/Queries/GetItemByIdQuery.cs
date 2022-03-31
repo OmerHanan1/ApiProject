@@ -1,13 +1,14 @@
 ﻿using ApiProject.DataTransferObjects;
 using MediatR;
+using System;
 
 namespace ApiProject.Domains.Queries
 {
     public class GetItemByIdQuery: IRequest<ItemDTO>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public GetItemByIdQuery(int id) 
+        public GetItemByIdQuery(Guid id) 
         { 
             this.Id = id;
         }

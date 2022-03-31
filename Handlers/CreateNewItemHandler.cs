@@ -25,6 +25,7 @@ namespace ApiProject.Handlers
 
             Item _i = new()
             {
+                Id = Guid.NewGuid(),
                 Name = request.Name,
                 Description = request.Description
             };
