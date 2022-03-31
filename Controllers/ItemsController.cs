@@ -54,7 +54,7 @@ namespace ApiProject.Controllers
         /// <param name="id">Item key</param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetItem(int id) 
+        public async Task<IActionResult> GetItem(Guid id) 
         {
             // Query
             var query = new GetItemByIdQuery(id);
@@ -86,7 +86,7 @@ namespace ApiProject.Controllers
         /// <param name="item"></param>
         /// <returns>Action result - NoContent</returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateItem(int id, ItemDTO item) 
+        public async Task<IActionResult> UpdateItem(Guid id, ItemDTO item) 
         {
             // Command
             var command = new UpdateItemCommand(id, item);
@@ -103,7 +103,7 @@ namespace ApiProject.Controllers
         /// <param name="id"></param>
         /// <returns>Action result - NoContent</returns>
         [HttpDelete]
-        public async Task<IActionResult> DeleteItem(int id) 
+        public async Task<IActionResult> DeleteItem(Guid id) 
         {
             var command = new DeleteItemCommand(id);
             var result = await _mediator.Send(command);
