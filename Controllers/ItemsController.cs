@@ -40,7 +40,7 @@ namespace ApiProject.Controllers
         [HttpGet]
         public async Task<IActionResult> GetItems() 
         {
-            // Query/Command
+            // Query
             var query = new GetItemsQuery();
             // Send method
             var result = await _mediator.Send(query);
@@ -56,7 +56,7 @@ namespace ApiProject.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetItem(int id) 
         {
-            // Query/Command
+            // Query
             var query = new GetItemByIdQuery(id);
             // Send method
             var result = await _mediator.Send(query);
@@ -73,7 +73,9 @@ namespace ApiProject.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateNewItem(CreateItemCommand command) 
         {
+            // Send method
             var result = await _mediator.Send(command);
+            // Result
             return CreatedAtAction(nameof(GetItem), new { id = result.Id }, result);
         }
 
@@ -86,8 +88,11 @@ namespace ApiProject.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateItem(int id, ItemDTO item) 
         {
+            // Command
             var command = new UpdateItemCommand(id, item);
+            // Send method
             var result = await _mediator.Send(command);
+            // Result
             if (result == null) { return NotFound(); }
             return NoContent();
         }
@@ -98,11 +103,11 @@ namespace ApiProject.Controllers
         /// <param name="id"></param>
         /// <returns>Action result - NoContent</returns>
         [HttpDelete]
-        public ActionResult DeleteItem(int id) 
+        public async Task<IActionResult> DeleteItem(int id) 
         {
-            var existingItem = _repository.GetItem(id) as Item;
-            if (existingItem == null) { return NotFound(); }
-            _repository.DeleteItem(id);
+            var command = new DeleteItemCommand(id);
+            var result = await _mediator.Send(command);
+            if (result == null) { return NotFound(); }
             return NoContent();
         }
     }

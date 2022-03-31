@@ -14,6 +14,7 @@ namespace ApiProject.Handlers
 
         public GetItemByIdHandler(LoaclAndExternalRepoInterface localAndExternalRepoInterface) 
         {
+            // DI in ctor
             _repository = localAndExternalRepoInterface;
         }
 

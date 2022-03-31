@@ -16,6 +16,7 @@ namespace ApiProject.Handlers
 
         public UpdateItemHandler(LoaclAndExternalRepoInterface loaclAndExternalRepoInterface) 
         {
+            // DI in ctor
             _repository = loaclAndExternalRepoInterface;
         }
 

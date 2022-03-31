@@ -15,6 +15,7 @@ namespace ApiProject.Handlers
         private readonly LoaclAndExternalRepoInterface _repository;
         public CreateNewItemHandler(LoaclAndExternalRepoInterface loaclAndExternalRepoInterface) 
         {
+            // DI in ctor
             _repository = loaclAndExternalRepoInterface;
         }
 
@@ -29,11 +30,6 @@ namespace ApiProject.Handlers
             };
             _repository.CreateNewItem(_i);
             return _i.convert_to_DTO();
-        }
-
-        private ItemDTO CreatedAtAction(string v, object p1, object p2)
-        {
-            throw new NotImplementedException();
         }
     }
 }
