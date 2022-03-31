@@ -84,16 +84,11 @@ namespace ApiProject.Controllers
         /// <param name="item"></param>
         /// <returns>Action result - NoContent</returns>
         [HttpPut("{id}")]
-        public ActionResult UpdateItem(int id, Item item) 
+        public async Task<IActionResult> UpdateItem(int id, ItemDTO item) 
         {
-            var existingItem = _repository.GetItem(id) as Item;
-            if (existingItem == null) { return NotFound(); }
-            Item updatedItem = existingItem with
-            {
-                Name = existingItem.Name,
-                Description = existingItem.Description
-            };
-            _repository.UpdateItem(updatedItem);
+            var command = new UpdateItemCommand(id, item);
+            var result = await _mediator.Send(command);
+            if (result == null) { return NotFound(); }
             return NoContent();
         }
 
