@@ -22,6 +22,13 @@
 	4.3. Postman
 	4.4. MongoDB.
 
-### Instructions for how to swich between local and external repositories:
-	2.1. work with local
-	2.2. work with external
+### Instructions for using local repository:
+	`instructions`
+	`instructions`
+### Instructions for using Mongo (ontop docker):
+	`instructions`
+	`instructions`
+### Instructions for using CosmosDB (locally ontop CosmosDB desktop emulator)
+	`instructions`
+	`instructions`
+	
